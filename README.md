@@ -54,6 +54,15 @@ Then add the canonical URL to `<head>` in `index.html`:
 <meta property="og:url" content="https://yourdomain.com/">
 ```
 
+## Search visibility
+
+`index.html` currently carries `<meta name="robots" content="noindex, nofollow">`, which keeps
+the page out of search results while the URL still works for anyone it is shared with.
+
+**Delete that tag when you want to be discoverable** — typically once the custom domain is
+attached and the content is final. Removing it is the whole change; search engines pick the
+page up on their next crawl.
+
 ## Keeping it current
 
 - **Latest post card** (`index.html`, in the "What I'm studying" section) — title, date,

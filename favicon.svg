@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="#f5f4ff" stroke="#b5abfc" stroke-width="3"/>
+  <text x="32" y="43" text-anchor="middle"
+        font-family="Inter, system-ui, -apple-system, sans-serif"
+        font-size="28" font-weight="600" letter-spacing="0.5" fill="#5d5294">DC</text>
+</svg>

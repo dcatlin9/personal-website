@@ -1,5 +1,6 @@
 /* Dan Catlin — personal site
-   Design tokens carried over from the Nocturne design system. */
+   Design tokens carried over from the Bench to Boardroom design system
+   (replaces the earlier Nocturne/purple palette — single-hue navy, no gradient mesh). */
 
 :root {
   --font-heading: "Inter", system-ui, -apple-system, sans-serif;
@@ -12,16 +13,16 @@
   --ink-soft: #5a5d6c;
   --ink-faint: #6d7080;
 
-  --accent: #5d5294;
-  --accent-hover: #423a6a;
-  --accent-100: #f5f4ff;
-  --accent-200: #e7e5fe;
-  --accent-300: #d2cefd;
-  --accent-400: #b5abfc;
-  --accent-500: #968ae0;
+  --accent: #1e4d8b;
+  --accent-hover: #163a68;
+  --accent-100: #eef3fa;
+  --accent-200: #dbe4f3;
+  --accent-300: #c3d6ec;
+  --accent-400: #5c92d6;
+  --accent-500: #6f97c9;
 
-  --navy: #262a60;
-  --navy-glow: #353b80;
+  --navy: #163a68;
+  --navy-glow: #1e4d8b;
 
   --surface-tint: #f7f8fc;
   --surface-cool: #f6f7fd;
@@ -31,8 +32,8 @@
   --line-strong: rgba(25, 27, 36, 0.12);
   --neutral-300: #d8dbe9;
 
-  --shadow-card: 0 1px 2px rgba(25, 27, 36, 0.04), 0 18px 40px -28px rgba(38, 42, 96, 0.28);
-  --shadow-card-soft: 0 1px 2px rgba(25, 27, 36, 0.04), 0 18px 40px -28px rgba(38, 42, 96, 0.24);
+  --shadow-card: 0 1px 2px rgba(25, 27, 36, 0.04), 0 18px 40px -28px rgba(22, 58, 104, 0.28);
+  --shadow-card-soft: 0 1px 2px rgba(25, 27, 36, 0.04), 0 18px 40px -28px rgba(22, 58, 104, 0.24);
 
   --shell: 1180px;
   --gutter: 40px;
@@ -205,9 +206,9 @@ p { margin: 0; }
 }
 .hero-eyebrow { margin-bottom: 28px; }
 .hero h1 {
-  font-size: 64px;
-  line-height: 1.06;
-  letter-spacing: -0.032em;
+  font-size: 54px; /* trimmed from 64px to keep a 3-line headline from overpowering the portrait */
+  line-height: 1.12;
+  letter-spacing: -0.028em;
   margin-bottom: 28px;
 }
 .hero h1 span { color: var(--accent); }
@@ -345,7 +346,7 @@ p { margin: 0; }
   font-size: 15px;
   line-height: 1.6;
   max-width: 26ch;
-  color: #e0dffb;
+  color: #e2ecf9; /* 9.6:1 on --navy — fixes a pre-existing sub-4.5:1 gap from the purple palette */
 }
 
 /* — two tracks — */
@@ -481,7 +482,7 @@ p { margin: 0; }
   font-size: 38px;
   line-height: 1;
   letter-spacing: -0.02em;
-  color: var(--accent-300);
+  color: #4784d1; /* 3.83:1 on white — --accent-300 itself stays a pale border tint, too light to read as this card's large number */
 }
 .built-card h3 {
   font-size: 29px;
@@ -737,11 +738,11 @@ p { margin: 0; }
   font-size: 10px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--accent-400);
+  color: #9fbcdf; /* 5.8:1 on --navy — --accent-400 itself is tuned for the equation operator on a light background, too dark to read as a label here */
   margin-bottom: 10px;
 }
 .contact-details a { font-size: 16.5px; color: #ffffff; }
-.contact-details a:hover { color: var(--accent-300); }
+.contact-details a:hover { color: #b7cfec; } /* 7.2:1 on --navy */
 
 /* — scroll reveal — */
 [data-reveal] { opacity: 1; }

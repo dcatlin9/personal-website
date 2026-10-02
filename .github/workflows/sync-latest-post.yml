@@ -1,0 +1,51 @@
+name: Sync latest post card
+
+# Keeps the "Latest post" card on index.html in sync with whatever is
+# actually the newest post over in the dcatlin9.github.io blog repo.
+#
+# Runs on a schedule rather than being triggered by a push to that other
+# repo, specifically so this needs no GitHub token/secret with access to
+# another repository — it only ever reads the blog repo's public API and
+# pushes to its own repo with the default, auto-issued GITHUB_TOKEN.
+#
+# One-time manual setup this workflow depends on (can't be done from a
+# workflow file itself): in this repo's Settings -> Actions -> General ->
+# "Workflow permissions", select "Read and write permissions" so
+# GITHUB_TOKEN is allowed to push commits. Without that, this job will
+# fail at the push step with a 403.
+
+on:
+  schedule:
+    - cron: "17,47 * * * *" # every 30 minutes, offset off the hour
+  workflow_dispatch: {} # lets Dan trigger a manual run from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out personal-website
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Sync latest post card
+        id: sync
+        run: python3 .github/scripts/sync_latest_post.py
+
+      - name: Commit and push if changed
+        run: |
+          if git diff --quiet -- index.html; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git config user.name "sync-latest-post bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add index.html
+          git commit -m "Auto-sync latest post card"
+          git push
